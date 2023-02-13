@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.33026.149
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryClient", "InventoryClient.csproj", "{1DEEC51C-E6A5-4713-87C9-0FC0AA9BEED2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MqttnetApp", "..\MqttnetApp\MqttnetApp.csproj", "{5FD7F5C6-F8B0-494D-B892-590446BC9A7D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,18 +27,6 @@ Global
 		{1DEEC51C-E6A5-4713-87C9-0FC0AA9BEED2}.Release|x64.Build.0 = Release|x64
 		{1DEEC51C-E6A5-4713-87C9-0FC0AA9BEED2}.Release|x86.ActiveCfg = Release|x86
 		{1DEEC51C-E6A5-4713-87C9-0FC0AA9BEED2}.Release|x86.Build.0 = Release|x86
-		{5FD7F5C6-F8B0-494D-B892-590446BC9A7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5FD7F5C6-F8B0-494D-B892-590446BC9A7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5FD7F5C6-F8B0-494D-B892-590446BC9A7D}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{5FD7F5C6-F8B0-494D-B892-590446BC9A7D}.Debug|x64.Build.0 = Debug|Any CPU
-		{5FD7F5C6-F8B0-494D-B892-590446BC9A7D}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{5FD7F5C6-F8B0-494D-B892-590446BC9A7D}.Debug|x86.Build.0 = Debug|Any CPU
-		{5FD7F5C6-F8B0-494D-B892-590446BC9A7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5FD7F5C6-F8B0-494D-B892-590446BC9A7D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5FD7F5C6-F8B0-494D-B892-590446BC9A7D}.Release|x64.ActiveCfg = Release|Any CPU
-		{5FD7F5C6-F8B0-494D-B892-590446BC9A7D}.Release|x64.Build.0 = Release|Any CPU
-		{5FD7F5C6-F8B0-494D-B892-590446BC9A7D}.Release|x86.ActiveCfg = Release|Any CPU
-		{5FD7F5C6-F8B0-494D-B892-590446BC9A7D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
