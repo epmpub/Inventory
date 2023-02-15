@@ -38,7 +38,7 @@ def subscribe(client: mqtt_client):
 
         # loads ...
         payload = json.loads(msg.payload)
-        print(type(payload))
+        # print(type(payload))
 
         print(payload["CPU"])
         print(payload["RAM"])
@@ -50,7 +50,10 @@ def subscribe(client: mqtt_client):
 
         print(payload["SN"])
         print(payload["Brand"])
+        print(payload["Model"])
         print(payload["OS"])
+        print(payload["HostName"])
+        print(payload["IPAddr"])
         print(payload["LastCheckin"])
 
         CPU = (payload["CPU"])
@@ -63,10 +66,14 @@ def subscribe(client: mqtt_client):
 
         SN = (payload["SN"])
         Brand = (payload["Brand"])
+        Model = (payload["Model"])
         OS = (payload["OS"])
+        HostName = (payload["HostName"])
+        IPAddr = (payload["IPAddr"])
+        
         LastCheckin = (payload["LastCheckin"])
 
-        values = (CPU, RAM, DISK, VideoController,NetworkAdapter,SoundCard,Monitor,SN,Brand,OS,LastCheckin)
+        values = (CPU, RAM, DISK, VideoController,NetworkAdapter,SoundCard,Monitor,SN,Brand,Model,OS,HostName,IPAddr,LastCheckin)
         data_append(conn=conn,values=values)
 
     client.subscribe(topic)
