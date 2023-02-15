@@ -40,6 +40,8 @@ namespace InventoryClient
                     NetworkAdapter = hardware.GetNetworkAdapter(),
                     SoundCard = hardware.GetSoundDevice(),
                     Monitor = hardware.GetMonitor(),
+                    HostName = hardware.GetHostName(),
+                    IPAddr = hardware.GetIpAddr(),
                     LastCheckin = hardware.GetLastCheckIn()
                 };
 
@@ -57,8 +59,10 @@ namespace InventoryClient
                 Console.WriteLine(inventoryItems.DISK);
                 Console.WriteLine(inventoryItems.NetworkAdapter);
                 Console.WriteLine(inventoryItems.SoundCard);
+                Console.WriteLine(inventoryItems.HostName);
+                Console.WriteLine(inventoryItems.IPAddr);
                 Console.WriteLine(inventoryItems.LastCheckin);
-                Console.WriteLine(output);
+                //Console.WriteLine(output);
 #endif
             }
             catch (Exception e)

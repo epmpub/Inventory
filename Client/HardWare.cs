@@ -69,6 +69,8 @@ namespace InventoryClient
 
         }
 
+
+
         public String GetSoundDevice()
         {
             String SoundCard = null;
@@ -290,6 +292,66 @@ namespace InventoryClient
             return LastCheckin;
         
         }
+
+        public String GetHostName()
+        {
+            string hostname = null;
+            try
+            {
+                ManagementObjectSearcher searcher =
+                    new ManagementObjectSearcher("root\\CIMV2",
+                    "SELECT * FROM Win32_ComputerSystem");
+
+                foreach (ManagementObject queryObj in searcher.Get())
+                {
+                    hostname =  queryObj["Name"].ToString();
+                }
+            }
+            catch (ManagementException e)
+            {
+                Console.WriteLine("An error occurred while querying for WMI data: " + e.Message);
+            }
+
+            return hostname;
+
+        }
+
+        public String GetIpAddr()
+        {
+            string ipAddr = null;
+            try
+            {
+                ManagementObjectSearcher searcher =
+                    new ManagementObjectSearcher("root\\CIMV2",
+                    "SELECT * FROM Win32_NetworkAdapterConfiguration WHERE IPEnabled = True");
+
+                foreach (ManagementObject queryObj in searcher.Get())
+                {
+                    if (queryObj["IPAddress"] == null)
+                        Console.WriteLine("IPAddress: {0}", queryObj["IPAddress"]);
+                    else
+                    {
+                        String[] arrIPAddress = (String[])(queryObj["IPAddress"]);
+                        foreach (String arrValue in arrIPAddress)
+                        {
+                            //Console.WriteLine("IPAddress: {0}", arrValue);
+                            ipAddr += arrValue.ToString() + ",";
+                        }
+                    }
+                    //Console.WriteLine("IPEnabled: {0}", queryObj["IPEnabled"]);
+                }
+            }
+            catch (ManagementException e)
+            {
+                Console.WriteLine("An error occurred while querying for WMI data: " + e.Message);
+            }
+
+            return ipAddr;
+
+
+    }
+
+
 
     }
 }

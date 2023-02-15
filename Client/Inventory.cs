@@ -19,5 +19,8 @@ namespace InventoryClient
         public string SoundCard { get;  set; }
         public string Monitor { get;  set; }
         public string NetworkAdapter { get;  set; }
+
+        public string HostName { get; set; }
+        public string IPAddr { get; set; }
     }
 }
