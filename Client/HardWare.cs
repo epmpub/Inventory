@@ -55,8 +55,8 @@ namespace InventoryClient
 
             return NetworkAdapters;
         }
-
-        public String GetMonitor()
+        // win10 work ,win7 not work!!!!
+        public String GetMonitor1()
         {
             IEnumerable<string> EnumerateMonitors() =>
                 new ManagementObjectSearcher(@"root\wmi", "SELECT * FROM WmiMonitorID").Get()
@@ -68,6 +68,57 @@ namespace InventoryClient
             return (string.Join(", ", EnumerateMonitors()));
 
         }
+
+        // TODO : win7 TEST.
+        public String GetMonitor()
+        {
+            string s = null;
+
+            string monitor = null;
+            try
+            {
+                ManagementObjectSearcher searcher =
+                    new ManagementObjectSearcher("root\\WMI",
+                    "SELECT * FROM WmiMonitorID");
+
+                foreach (ManagementObject queryObj in searcher.Get())
+                {
+                    if (queryObj["UserFriendlyName"] == null)
+                    {
+                        //Console.WriteLine("1 - UserFriendlyName: {0}", queryObj["UserFriendlyName"]);
+
+                    }
+                    else
+                    {
+                        UInt16[] arrUserFriendlyName = (UInt16[])(queryObj["UserFriendlyName"]);
+                        foreach (UInt16 arrValue in arrUserFriendlyName)
+                        {
+                            //Console.WriteLine("2 - UserFriendlyName: {0}", arrValue);
+                            char c = Convert.ToChar(arrValue);
+                            if (c != '\0')
+                            {
+                                s += c.ToString();
+
+                            }
+                        }
+                    }
+                }
+                Console.WriteLine(s);
+                return s;
+
+            }
+            catch (ManagementException e)
+            {
+                Console.WriteLine("An error occurred while querying for WMI data: " + e.Message);
+            }
+
+
+            return monitor;
+
+        }
+
+
+
 
 
 
